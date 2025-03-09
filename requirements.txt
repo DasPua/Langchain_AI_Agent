@@ -1,0 +1,31 @@
+langchain-openai
+openai
+# Provides integration with OpenAI models, including GPT-4 and GPT-3.5.
+
+langchain-google-genai
+google-generativeai
+# Supports Google's Gemini models, enabling their use within LangChain applications.
+
+langchain-anthropic
+# Enables interaction with Claude models from Anthropic.
+
+langchain-community
+# Includes support for various open-source models like LLaMA, Mistral, Falcon, and Hugging Face models.
+
+langchain-huggingface  
+# Core integration with Hugging Face, enabling model inference and retrieval.  
+
+transformers  
+# Hugging Face's main library for working with transformer-based models (GPT, BERT, T5, etc.).  
+
+huggingface-hub
+# Provides access to models, datasets, and spaces available on the Hugging Face Hub.
+
+tavily-python 
+
+#search engine for websearching 
+
+sentence_transformers
+
+#to embedding model of hugging face
+
