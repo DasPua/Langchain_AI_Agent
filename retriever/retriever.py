@@ -17,19 +17,25 @@ load_dotenv()
 
 # model = SentenceTransformer('multi-qa-MiniLM-L6-cos-v1')
 
-model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+def retriever(urls):
 
-loader = WebBaseLoader("https://docs.smith.langchain.com/overview")
+    model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
-docs = loader.load()
+    loader = WebBaseLoader()
+    
+    loader.web_path = urls
 
-document = RecursiveCharacterTextSplitter(
-    chunk_size = 100, chunk_overlap = 20
-).split_documents(docs)
+    docs = loader.load()
 
-vector = FAISS.from_documents(document, model)
+    document = RecursiveCharacterTextSplitter(
+        chunk_size = 100, chunk_overlap = 20
+    ).split_documents(docs)
 
-retriever = vector.as_retriever()
+    vector = FAISS.from_documents(document, model)
+
+    ret = vector.as_retriever()
+    
+    return ret
 
 # result = retriever.invoke("how to use langchain")
 

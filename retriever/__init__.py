@@ -1,9 +1,9 @@
-from retriever import retriever
-from langchain.tools.retriever import create_retriever_tool
+from retriever.retriever import retriever
+from langchain_community.tools import Tool
 
 
-retriever_tool  = create_retriever_tool(
-    retriever,
-    "langsmith_search",
-    "Search for information about LangSmith. For any questions about LangSmith, you must use this tool!",
+retriever_tool  = Tool(
+    name = "retriever",
+    description = "Search and stores the information about the query from from a list of URLs. Input should be a comma-separated string of URLs or a list of URLs.",
+    func = retriever
 )

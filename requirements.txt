@@ -29,3 +29,7 @@ sentence_transformers
 
 #to embedding model of hugging face
 
+playwright
+
+# to extract and scrape the urls 
+
