@@ -15,7 +15,15 @@ endpoint = HuggingFaceEndpoint(
 
 llm = ChatHuggingFace(llm=endpoint)
 
-def Scrapper_func(urls):
+def stringtolist(text:str):
+    
+    ls = [f"{"item"}" for item in text.split(',')[:-1]]
+    
+    return ls
+
+def Scrapper_func(urls_string):
+    
+    urls = stringtolist(urls_string)
     loader = AsyncChromiumLoader(urls)
     docs = loader.load()
     
@@ -62,6 +70,6 @@ def Scrapper_func(urls):
         return chain.invoke({"content": splits[0].page_content})
     return "No content found"
 
-urls = ["https://news.google.com/home?hl=en-IN&gl=IN&ceid=IN:en","https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0"]
+urls = "https://news.google.com/home?hl=en-IN&gl=IN&ceid=IN:en,https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0"
 
 print(Scrapper_func(urls))

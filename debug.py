@@ -23,12 +23,11 @@ load_dotenv()
 # print("HF_TOKEN:", os.getenv("HUGGINGFACEHUB_ACCESS_TOKEN"))
 
 
-from search import url_search
+from search import url_searching
+from scrapper import scrapper_tool,Scrapper_func
 
-collected_urls = []
+collected_urls = url_searching("find the top dsa courses")
 
-for output in url_search.invoke("dsa courses"):
-    collected_urls.append(output['url'])
+print(scrapper_tool.invoke(collected_urls))
 
-for url in collected_urls:
-    print(url)
+# print(Scrapper_func(collected_urls))
